@@ -3,6 +3,7 @@
 This week you have two separate parts to work on:
 
 1. Adding features to an existing Movie App with React-Redux and Redux-Sagas
+
 2. Practicing SQL
 
 Be sure to do both parts!
