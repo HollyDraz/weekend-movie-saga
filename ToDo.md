@@ -1,6 +1,8 @@
 ## TO DO 
 
 Home/List Page: 
+[x] create movie page
+[x] create details page 
 [] When a movie poster is clicked the user should be brought to the /details view 
 
 
