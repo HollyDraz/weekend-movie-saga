@@ -4,7 +4,7 @@ import {useDispatch } from 'react-redux';
 import {useSelector} from "react-redux";
 import { useHistory } from 'react-router-dom';
 
-const movieDetails = () => {
+const MovieDetails = () => {
     //may be needed to go back to movie list page
     const history = useHistory();
     //selector and dispatch 
@@ -18,9 +18,11 @@ const movieDetails = () => {
     }
     return(
         <>
+        <p>movie details here :3 </p>
+        <button onClick={() => history.push('/')}>Back</button>
         </>
     )
 
 }
 
-export default movieDetails;
+export default MovieDetails;
