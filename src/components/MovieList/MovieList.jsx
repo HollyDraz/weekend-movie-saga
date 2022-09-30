@@ -23,6 +23,8 @@ function MovieList() {
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/> 
                             <br/>
+                            <button>Details</button>
+                            <br/>
                             
                         </div>
                     );
