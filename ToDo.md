@@ -8,7 +8,7 @@ Home/List Page:
 []create details page 
 [] add movie details information to be displayed on page 
 
-[] 
+[] link the id of the movie to the movie details 
 
 
 Details Page: 
