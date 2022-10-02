@@ -46,12 +46,22 @@ function* fetchMovieGenres(){
 // fetch movie details 
 function* fetchMovieDetails(){
     try{
-        const details = yield axios.get('');
-        console.log('MOVIE DETAILS', movies.data);
+        const details = yield axios.get(`/api/movies/description: ${action.payload}`);
+        console.log('MOVIE DETAILS', details.data);
         yield put ({type: 'SET_DETAILS', payload:details.data })
     }catch{
         console.log('an error occurred in details getter')
     }
+}
+
+
+//reducer for movie details 
+const details = (state = [], action ) => {
+    if(action.type === 'SET_DETAILS'){
+        return [...state, action.payload];
+    }
+    return state;
+
 }
 
 // Create sagaMiddleware
@@ -77,14 +87,7 @@ const genres = (state = [], action) => {
     }
 }
 
-//reducer for movie details 
-const details = (state = [], action ) => {
-    if(action.type === 'SET_DETAILS'){
-        return [...state, action.payload];
-    }
-    return state;
 
-}
 
 
 // Create one store that all components can use

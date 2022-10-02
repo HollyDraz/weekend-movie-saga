@@ -11,10 +11,12 @@ const MovieDetails = () => {
     //selector and dispatch 
     const details = useSelector ( store => store.details);
     const dispatch = useDispatch();
+    
   
 
 
     const handleDetails = () => {
+        console.log('movie detail test', details);
         dispatch({type: 'FETCH_DETAILS'});
     }
 
