@@ -5,7 +5,7 @@ Home/List Page:
 [x] create details page 
 [x] add a button for each movie 
 [x] When a movie poster is clicked the user should be brought to the /details view 
-[]create details page 
+[x]create details page 
 [] add movie details information to be displayed on page 
 
 [] link the id of the movie to the movie details 

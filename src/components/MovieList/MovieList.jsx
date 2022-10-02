@@ -21,7 +21,7 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/> 
+                            <img src={movie.poster} alt={movie.title}/>
                             <br/>
                             <button onClick={() => history.push('/details')} className="movie-button">Details</button>
                             <br/>

@@ -8,13 +8,14 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, take } from 'redux-saga/effects';
 import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRES', fetchMovieGenres);
+    yield takeEvery('FETCH_DETAILS', fetchMovieDetails);
 }
 
 function* fetchAllMovies() {
@@ -39,6 +40,18 @@ function* fetchMovieGenres(){
         yield put ({type: 'SET_GENRES', payload:genres.data })
     }catch{
         console.log('an error occurred in genres getter')
+    }
+}
+
+// fetch movie details 
+function* fetchMovieDetails(){
+    //get genres from the database:
+    try{
+        const details = yield axios.get('/api/detail');
+        console.log('get all info', genres.data);
+        yield put ({type: 'SET_DETAILS', payload:details.data })
+    }catch{
+        console.log('an error occurred in details getter')
     }
 }
 

@@ -13,17 +13,10 @@ const MovieDetails = () => {
    // const [newDetail, setNewDetail] = useState(''); 
     const dispatch = useDispatch();
 
-  
-    // dispatch called for movie details 
-    //how do I know when to call a payload? 
-    // const handleDetails = () => {
-    //     dispatch({type: 'SET_DETAILS'})
-    // }
 
-    //get movie genres 
-    const getPlants = () => {
-        dispatch({type: 'FETCH_PLANTS' });
-}
+    const handleDetails = () => {
+        dispatch({type: 'SET_DETAILS'});
+    }
 
 
 
