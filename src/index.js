@@ -37,7 +37,6 @@ function* fetchMovieGenres(){
         const genres = yield axios.get('/api/genres');
         console.log('get all info', genres.data);
         yield put ({type: 'SET_GENRES', payload:genres.data })
-
     }catch{
         console.log('an error occurred in genres getter')
     }
@@ -67,9 +66,9 @@ const genres = (state = [], action) => {
 }
 
 //reducer for movie details 
-const details = (state = ' ', action ) => {
+const details = (state = [], action ) => {
     if(action.type === 'SET_DETAILS'){
-        return action.payload;
+        return [...state, action.payload];
     }
     return state;
 
