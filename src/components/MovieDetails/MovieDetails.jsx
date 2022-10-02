@@ -9,7 +9,7 @@ const MovieDetails = () => {
     //may be needed to go back to movie list page
     const history = useHistory();
     //selector and dispatch 
-    const details = useSelector ( store => store.details);
+    //const details = useSelector ( store => store.details);
    // const [newDetail, setNewDetail] = useState(''); 
     const dispatch = useDispatch();
 
@@ -19,7 +19,6 @@ const MovieDetails = () => {
     }
 
 
-
     useEffect (() => {
         console.log('comp did mount');
         handleDetails();
@@ -27,9 +26,6 @@ const MovieDetails = () => {
 
     return(
         <>
-        {details.map(detail => {
-                <li key={detail} >{detail}</li>
-            })}
 
         <button onClick={() => history.push('/')}>Back</button>
         </>

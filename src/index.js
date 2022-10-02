@@ -45,7 +45,6 @@ function* fetchMovieGenres(){
 
 // fetch movie details 
 function* fetchMovieDetails(){
-    //get genres from the database:
     try{
         const details = yield axios.get('/api/detail');
         console.log('get all info', genres.data);
@@ -79,13 +78,13 @@ const genres = (state = [], action) => {
 }
 
 //reducer for movie details 
-const details = (state = [], action ) => {
-    if(action.type === 'SET_DETAILS'){
-        return [...state, action.payload];
-    }
-    return state;
+// const details = (state = [], action ) => {
+//     if(action.type === 'SET_DETAILS'){
+//         return [...state, action.payload];
+//     }
+//     return state;
 
-}
+// }
 
 
 // Create one store that all components can use
@@ -93,7 +92,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
-        details,
+        //details,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
