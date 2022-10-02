@@ -14,7 +14,7 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery('FETCH_GENRES', fetchMovieGenres);
+    //yield takeEvery('FETCH_GENRES', fetchMovieGenres);
     yield takeEvery('FETCH_DETAILS', fetchMovieDetails);
 }
 
@@ -32,23 +32,25 @@ function* fetchAllMovies() {
 }
 
 // create saga to fetch the movie genres 
-function* fetchMovieGenres(){
-    //get genres from the database:
-    try{
-        const genres = yield axios.get('/api/genres');
-        console.log('get all info', genres.data);
-        yield put ({type: 'SET_GENRES', payload:genres.data })
-    }catch{
-        console.log('an error occurred in genres getter')
-    }
-}
+// function* fetchMovieGenres(){
+//     //get genres from the database:
+//     try{
+//         const genres = yield axios.get('/api/genres');
+//         console.log('get all info', genres.data);
+//         yield put ({type: 'SET_GENRES', payload:genres.data })
+//     }catch{
+//         console.log('an error occurred in genres getter')
+//     }
+// }
 
 // fetch movie details 
-function* fetchMovieDetails(){
+function* fetchMovieDetails(action){
     try{
-        const details = yield axios.get(`/api/movies/description: ${action.payload}`);
+        const details = yield axios.get(`/api/movie/${action.payload}`);
+        const genres = yield axios.get(`/api/genre/${action.payload}`);
         console.log('MOVIE DETAILS', details.data);
-        yield put ({type: 'SET_DETAILS', payload:details.data })
+        yield put ({type: 'SET_DETAILS', payload: details.data })
+        yield put ({type: 'SET_GENRES', payload: genres.data })
     }catch{
         console.log('an error occurred in details getter')
     }
@@ -58,7 +60,7 @@ function* fetchMovieDetails(){
 //reducer for movie details 
 const details = (state = [], action ) => {
     if(action.type === 'SET_DETAILS'){
-        return [...state, action.payload];
+        return action.payload;
     }
     return state;
 
