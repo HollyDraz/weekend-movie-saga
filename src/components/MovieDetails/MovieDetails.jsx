@@ -38,12 +38,15 @@ const MovieDetails = () => {
 
     return(
         <>
-        <Box>
+        <Box x={{ border: 3 }}>
             <Card>
+                <CardContent>
          <img src={details.poster}></img>
             <p>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {details.title}
             {details.description}
+            </Typography>
             </p>
             <section className='genres'>
                 {genres.map(genre => {
@@ -53,6 +56,7 @@ const MovieDetails = () => {
                     </div>)
                 })}
             </section>
+                 </CardContent>
                 </Card>
             </Box>
             <br/>
