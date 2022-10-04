@@ -4,6 +4,13 @@ import {useDispatch } from 'react-redux';
 import {useSelector} from "react-redux";
 import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 
 const MovieDetails = () => {
     //may be needed to go back to movie list page
@@ -13,7 +20,8 @@ const MovieDetails = () => {
     const genres = useSelector (store => store.genres);
     const dispatch = useDispatch();
     const {id} = useParams();
-    
+    // 
+
   
 
 
@@ -30,6 +38,8 @@ const MovieDetails = () => {
 
     return(
         <>
+        <Box>
+            <Card>
          <img src={details.poster}></img>
             <p>
             {details.title}
@@ -43,10 +53,12 @@ const MovieDetails = () => {
                     </div>)
                 })}
             </section>
-           
+                </Card>
+            </Box>
+            <br/>
      
 
-        <button onClick={() => history.push('/')}>Back</button>
+        <Button onClick={() => history.push('/')}>Back</Button>
         </>
     )
 
